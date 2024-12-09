@@ -37,7 +37,6 @@ class _ExpensesState extends State<Expenses> {
   }
 
   void _addExpense(Expense expense) {
-    final expenseIndex = _registeredExpenses.indexOf(expense);
     setState(() {
       _registeredExpenses.add(expense);
     });
@@ -68,7 +67,7 @@ class _ExpensesState extends State<Expenses> {
   @override
   Widget build(BuildContext context) {
     Widget mainContent = const Center(
-      child: (Text('No expenses, start adding some!!')),
+      child: Text('No expenses found. Start adding some!'),
     );
 
     if (_registeredExpenses.isNotEmpty) {
@@ -90,10 +89,7 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(
         children: [
-          const Text(
-            'Your List is here',
-            style: TextStyle(height: 3),
-          ),
+          const Text('The chart'),
           Expanded(
             child: mainContent,
           ),
